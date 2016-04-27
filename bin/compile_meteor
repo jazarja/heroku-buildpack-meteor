@@ -52,7 +52,7 @@ build() {
     cd $APP_SOURCE
     
     # Install dependencies
-    npm install
+    npm install --quiet | indent
     
     # can't build with these platforms enabled, it looks like
     set +e  # these next few are allowed to exit nonzero
