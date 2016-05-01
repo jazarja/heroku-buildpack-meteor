@@ -52,7 +52,19 @@ build() {
     cd $APP_SOURCE
     
     # Install dependencies
+    NODE_MODULES_CACHE="$CACHE_DIR/meteor/node_modules"
+    if [ ! -e "$NODE_MODULES" ]; then
+    	
+  	else
+  		head "Copying node modules cache"
+    	cp -r NODE_MODULES_CACHE "$APP_SOURCE/"
+  	fi
     npm install --quiet | indent
+    if [ ! -e $CACHE_DIR/meteor ] ; then
+    	mkdir "$CACHE_DIR/meteor"
+    fi 
+    
+    cp -r "$APP_SOURCE/node_modules" "$CACHE_DIR/meteor"
     
     # can't build with these platforms enabled, it looks like
     set +e  # these next few are allowed to exit nonzero
