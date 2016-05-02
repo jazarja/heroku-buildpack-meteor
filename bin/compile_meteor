@@ -53,8 +53,8 @@ build() {
     
     # Install dependencies
     NODE_MODULES_CACHE="$CACHE_DIR/meteor/node_modules"
-    if [ ! -e "$NODE_MODULES" ]; then
-    	
+    if [ ! -e "$NODE_MODULES_CACHE" ]; then
+    	 info "Node modules is not cached"
   	else
   		head "Copying node modules cache"
     	cp -r NODE_MODULES_CACHE "$APP_SOURCE/"
