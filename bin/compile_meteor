@@ -57,9 +57,9 @@ build() {
     	 info "Node modules is not cached"
   	else
   		head "Copying node modules cache"
-    	cp -r NODE_MODULES_CACHE "$APP_SOURCE/"
-  	fi
-    npm install --quiet | indent
+    	cp -r $NODE_MODULES_CACHE "$APP_SOURCE/"
+  	fi     
+    npm install --quiet | indent 
     if [ ! -e $CACHE_DIR/meteor ] ; then
     	mkdir "$CACHE_DIR/meteor"
     fi 
